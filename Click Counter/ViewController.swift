@@ -16,26 +16,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //label
+        //create label show on UI
         let label = UILabel()
         label.frame = CGRect.init(x: 150, y: 150, width: 60, height: 60)
         label.text = "0"
         self.view.addSubview(label)
         self.label = label
         
-        
-        //button
+        //create button
         let button = UIButton()
         button.frame = CGRect.init(x: 150, y: 250, width: 60, height: 60)
         button.setTitle("Click", for: .normal)
         button.setTitleColor(UIColor.blue, for: .normal)
+        //hiện lên màn hình
         self.view.addSubview(button)
-        
-        button.addTarget(self, action: #selector(ViewController.incrementCount), for: UIControlEvents.touchUpInside)
+        button.addTarget(self, action: #selector(incrementNumber), for: UIControlEvents.touchUpInside)
     }
     
-    //function increase number
-    @objc func incrementCount() {
+    @objc func incrementNumber() {
         self.count = self.count + 1
         self.label.text = "\(self.count)"
     }
